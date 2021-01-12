@@ -1,0 +1,27 @@
+###############################################
+#      .    _                 __    __ _ _    #
+#     /\\  | |               / _|   \ \ \ \   #
+#    ( ( ) | |     ___  __ _| |_     \ \ \ \  #
+#    \\/   | |    / _ \/ _` |  _|     ) ) ) ) #
+#     '    | |___|  __/ (_| | |      / / / /  #
+#          |______\___|\__,_|_|     /_/_/_/   #
+#   =======================================   #
+###############################################
+
+# MongoDB Connection URL
+database:
+  url: "MONGO_URI"
+  name: "Leaf"
+
+# The bots config
+bot:
+  # The bots token
+  token: "TOKEN"
+  # The bots prefix
+  prefix: "!"
+  # Bots activity
+  activity:
+    # What you want the custom activity to say
+    string: "Leaf | !help"
+    # The action "PLAYING" or "LISTENING" or "WATCHING"
+    type: "PLAYING"

@@ -1,0 +1,6 @@
+application.yml
+build
+.idea
+logs
+.gradle/buildOutputCleanup
+.gradle/configuration-cache
