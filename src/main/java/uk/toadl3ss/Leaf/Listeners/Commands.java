@@ -6,12 +6,13 @@ import uk.toadl3ss.Leaf.Commands.Moderation.Ban;
 import uk.toadl3ss.Leaf.Commands.Moderation.Kick;
 import uk.toadl3ss.Leaf.Commands.Moderation.Warn;
 import uk.toadl3ss.Leaf.Commands.Music.*;
+import uk.toadl3ss.Leaf.Commands.Owner.Eval;
 import uk.toadl3ss.Leaf.Commands.RoleReactions.Add;
 import uk.toadl3ss.Leaf.Commands.RoleReactions.Remove;
 import uk.toadl3ss.Leaf.Database.getMusic;
 
 public class Commands {
-    public static void Commands(MessageReceivedEvent event, String command, String[] args, String prefix) {
+    public static void Commands(MessageReceivedEvent event, String command, String[] args, String prefix) throws InterruptedException {
         final String id = event.getGuild().getId();
         if (getMusic.getMusic(id)) {
             switch (command.toLowerCase()) {
@@ -76,6 +77,18 @@ public class Commands {
                 break;
             case "prefix":
                 new Prefix().Action(event, args, prefix);
+                break;
+            case "ping":
+                new Ping().Action(event, args, prefix);
+                break;
+
+                //Owner
+            case "eval":
+                new Eval().Action(event, args, prefix);
+                break;
+            case "shutdown":
+            case "stop":
+                new uk.toadl3ss.Leaf.Commands.Owner.Stop().Action(event, args, prefix);
                 break;
 
             //Role reactions

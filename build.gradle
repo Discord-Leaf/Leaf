@@ -28,6 +28,7 @@ dependencies {
     compile 'org.mongodb:mongo-java-driver:3.12.7'
     implementation 'me.carleslc.Simple-YAML:Simple-Yaml:1.7.2'
     testCompile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.2'
+    implementation 'org.codehaus.groovy:groovy-jsr223:3.0.7'
 }
 
 compileJava.options.encoding = 'UTF-8'

@@ -8,6 +8,9 @@
 #   =======================================   #
 ###############################################
 
+#  The bots owner id
+ownerid: YOUR_ID
+
 # MongoDB Connection URL
 database:
   url: "MONGO_URI"

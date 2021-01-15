@@ -15,6 +15,7 @@ public class Config {
     public String ActivityType;
     public String ActivityString;
     public String Name;
+    public Long ownerId;
 
     private Config(String file) {
         config = new File(file);
@@ -39,6 +40,7 @@ public class Config {
         this.Prefix = config.getString("bot.prefix");
         this.ActivityString = config.getString("bot.activity.string");
         this.ActivityType = config.getString("bot.activity.type");
+        this.ownerId = config.getLong("ownerid");
     }
 
     //Fetching the bots token
@@ -69,5 +71,10 @@ public class Config {
     //Fetching the bots database name
     public String getDatabaseName() {
         return Name;
+    }
+
+    // Fetching the bots owner id
+    public Long getOwnerId() {
+        return ownerId;
     }
 }

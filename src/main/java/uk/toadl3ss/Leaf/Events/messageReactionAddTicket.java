@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class messageReactionAddTicket extends ListenerAdapter {
-    HashMap<Member, Boolean> hasTicket = new HashMap<>();
+    public static HashMap<Member, Boolean> hasTicket = new HashMap<>();
     public void onGuildMessageReactionAdd(GuildMessageReactionAddEvent event) {
         if (!event.getChannel().getName().equals("tickets")) {
             return;

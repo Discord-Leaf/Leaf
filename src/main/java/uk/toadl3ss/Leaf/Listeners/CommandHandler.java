@@ -15,13 +15,21 @@ public class CommandHandler extends ListenerAdapter {
         String mention = "<@!" + event.getJDA().getSelfUser().getId() + ">";
         if (args[0].startsWith(mention)) {
             String command = args[0].replaceFirst("^" + mention, "");
-            Commands.Commands(event, command, args, mention);
+            try {
+                Commands.Commands(event, command, args, mention);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return;
         }
         // Checking if the messages starts with the guilds prefix
         if (args[0].startsWith(prefix)) {
             String command = args[0].replaceFirst("^" + prefix, "");
-            Commands.Commands(event, command, args, prefix);
+            try {
+                Commands.Commands(event, command, args, prefix);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return;
         }
     }

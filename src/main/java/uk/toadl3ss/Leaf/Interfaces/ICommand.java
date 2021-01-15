@@ -10,5 +10,5 @@ public interface ICommand {
      * @param prefix The prefix of the guild
      *
      */
-    void Action(MessageReceivedEvent event, String[] args, String prefix);
+    void Action(MessageReceivedEvent event, String[] args, String prefix) throws InterruptedException;
 }

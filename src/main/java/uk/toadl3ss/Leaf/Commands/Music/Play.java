@@ -30,8 +30,6 @@ public class Play implements ICommand {
             return;
         }
 
-        System.out.println(args.length);
-
         if (!selfVoiceState.inVoiceChannel()) {
             final AudioManager audioManager = event.getGuild().getAudioManager();
             final VoiceChannel memberChannel = memberVoiceState.getChannel();

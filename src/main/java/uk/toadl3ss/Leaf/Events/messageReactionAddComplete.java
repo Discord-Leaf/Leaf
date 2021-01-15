@@ -14,8 +14,8 @@ public class messageReactionAddComplete extends ListenerAdapter {
         if (!event.getReactionEmote().getName().equals("❌")) {
             return;
         }
+        messageReactionAddTicket.hasTicket.remove(event.getMember(), true);
         event.getReaction().removeReaction(event.getUser()).queue();
         event.getChannel().delete().queue();
-        new messageReactionAddTicket().hasTicket.remove(event.getMember(), true);
     }
 }

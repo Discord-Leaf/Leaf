@@ -29,10 +29,7 @@ public class Clear implements ICommand {
         try {
             final MessageChannel channel = event.getChannel();
             MessageHistory history = new MessageHistory(channel);
-            List<Message> msgs;
-            msgs = history.retrievePast(Integer.parseInt(args[1])).complete();
-            channel.purgeMessages(msgs);
-            msgs.clear();
+            history.retrievePast(Integer.parseInt(args[1])).queue(channel::purgeMessages);
             channel.sendMessage("Successfully deleted" + " " + args[1] + " " + "messages.")
                     .delay(6, TimeUnit.SECONDS)
                     .flatMap(Message::delete)
