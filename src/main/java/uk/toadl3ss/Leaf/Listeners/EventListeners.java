@@ -12,7 +12,8 @@ public class EventListeners {
                 new guildLeaveEvent(),
                 new messageReactionAddTicket(),
                 new messageReactionAddComplete(),
-                new messageReactionAddRR()
+                new messageReactionAddRR(),
+                new Shutdown()
         );
     }
 }

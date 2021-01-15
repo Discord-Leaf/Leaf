@@ -19,12 +19,18 @@ public class Eval implements ICommand {
                 "import net.dv8tion.jda.core.entities.impl.*\n" +
                 "import net.dv8tion.jda.core.managers.*\n" +
                 "import net.dv8tion.jda.core.managers.impl.*\n" +
+                "import net.dv8tion.jda.api.*;" +
+                "import net.dv8tion.jda.api.entities.Activity;" +
                 "import net.dv8tion.jda.core.utils.*\n";
     }
     @Override
     public void Action(MessageReceivedEvent event, String[] args, String prefix) throws InterruptedException {
         String messageArgs = event.getMessage().getContentRaw().replaceFirst("^" + prefix + "eval" + " ", "");
         if (event.getAuthor().getIdLong() == Config.INS.getOwnerId()) {
+            if (args.length < 2) {
+                event.getChannel().sendMessage("Please add code to evaluate").queue();
+                return;
+            }
             try {
                 engine.setProperty("args", messageArgs);
                 engine.setProperty("event", event);

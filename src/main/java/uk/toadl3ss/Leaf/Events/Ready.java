@@ -1,14 +1,13 @@
 package uk.toadl3ss.Leaf.Events;
 
 import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.OnlineStatus;
-import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.sharding.ShardManager;
 import uk.toadl3ss.Leaf.Main;
 import uk.toadl3ss.Leaf.Utillites.Logger;
 import uk.toadl3ss.Leaf.Utillites.setActivity;
+import uk.toadl3ss.Leaf.Webhooks.startHook;
 
 public class Ready extends ListenerAdapter {
     private int shards = 0;
@@ -31,6 +30,7 @@ public class Ready extends ListenerAdapter {
         );
         if(shards == jda.getShardInfo().getShardTotal()){
             new setActivity().setActivity(jda);
+            startHook.sendStartHook(event);
             Logger.info( // Loaded Bot {} vBOT_VERSION with {} shard(s) and {} guilds!
                     "Loaded Bot" +
                             " " +
