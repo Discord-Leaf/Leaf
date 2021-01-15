@@ -5,7 +5,7 @@ import uk.toadl3ss.Leaf.Utillites.Console.Actions.Stop;
 import uk.toadl3ss.Leaf.Utillites.Logger;
 
 public class ConsoleHandler {
-    public static void ConsoleHandler(String input) {
+    public static void ConsoleHandler(String input) throws InterruptedException {
         switch (input.toLowerCase()) {
             case "shutdown":
             case "end":

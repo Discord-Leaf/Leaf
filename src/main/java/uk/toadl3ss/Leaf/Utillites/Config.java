@@ -2,6 +2,8 @@ package uk.toadl3ss.Leaf.Utillites;
 
 import java.io.File;
 import java.io.IOException;
+
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.simpleyaml.configuration.file.FileConfiguration;
 import org.simpleyaml.configuration.file.YamlConfiguration;
 import org.simpleyaml.exceptions.InvalidConfigurationException;
@@ -9,13 +11,15 @@ import org.simpleyaml.exceptions.InvalidConfigurationException;
 public class Config {
     private File config;
     public static Config INS;
-    public String Database;
-    public String Prefix;
-    public String Token;
-    public String ActivityType;
-    public String ActivityString;
-    public String Name;
-    public Long ownerId;
+    private String Database;
+    private String Prefix;
+    private String Token;
+    private String ActivityType;
+    private String ActivityString;
+    private String Name;
+    private Long ownerId;
+    private Boolean webhooksStatus;
+    private String webhooksURL;
 
     private Config(String file) {
         config = new File(file);
@@ -41,6 +45,8 @@ public class Config {
         this.ActivityString = config.getString("bot.activity.string");
         this.ActivityType = config.getString("bot.activity.type");
         this.ownerId = config.getLong("ownerid");
+        this.webhooksStatus = config.getBoolean("webhooks.enabled");
+        this.webhooksURL = config.getString("webhooks.url");
     }
 
     //Fetching the bots token
@@ -76,5 +82,15 @@ public class Config {
     // Fetching the bots owner id
     public Long getOwnerId() {
         return ownerId;
+    }
+
+    // Fetching the webhooks status
+    public Boolean getWebhooksStatus() {
+        return webhooksStatus;
+    }
+
+    // Fetching the webhooks url
+    public String getWebhooksURL() {
+        return webhooksURL;
     }
 }
