@@ -11,6 +11,11 @@
 #  The bots owner id
 ownerid: YOUR_ID
 
+# Webhooks config
+webhooks:
+  url: "WEBHOOK_URL"
+  enabled: false
+
 # MongoDB Connection URL
 database:
   url: "MONGO_URI"

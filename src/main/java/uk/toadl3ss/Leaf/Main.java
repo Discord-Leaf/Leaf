@@ -29,6 +29,7 @@ import uk.toadl3ss.Leaf.Utillites.Config;
 import uk.toadl3ss.Leaf.Utillites.Console.ConsoleInput;
 import uk.toadl3ss.Leaf.Utillites.Info;
 import uk.toadl3ss.Leaf.Utillites.Vanity;
+import uk.toadl3ss.Leaf.Webhooks.Webhooks;
 
 import javax.security.auth.login.LoginException;
 
@@ -39,7 +40,7 @@ public class Main {
     public static String version = "1.0.1 BETA";
     public static DefaultShardManagerBuilder builder;
     public static ShardManager jda;
-    public static void main(String[] args) throws LoginException, IOException {
+    public static void main(String[] args) throws LoginException, IOException, InterruptedException {
         Vanity.printVainity();
         Info.printInfo(version);
         Config.init("application.yml");
@@ -67,6 +68,7 @@ public class Main {
         new EventListeners().addEventListeners(builder);
         builder.setShardsTotal(-1);
         jda = builder.build();
+        new Webhooks();
         new ConsoleInput();
     }
 }
